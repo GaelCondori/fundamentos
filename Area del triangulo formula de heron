@@ -1,0 +1,17 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main() {
+    float semiperimetro,ladoA,ladoB,ladoC,Area;
+    cout<<"Ingresar lado A: ";
+    cin >>ladoA ;
+    cout<<"Ingresar lado B:";
+    cin >>ladoB ;
+    cout<<"Ingresar lado C:";
+    cin >>ladoC ;
+    semiperimetro=(ladoA+ladoB+ladoC)/2 ; //calculamos el semiperimetro
+    Area= sqrt(semiperimetro*(semiperimetro - ladoA)*(semiperimetro - ladoB)*(semiperimetro - ladoC)); // Calculamos el area total
+    std::cout << "El area es:" << Area;
+    return 0;
+}
