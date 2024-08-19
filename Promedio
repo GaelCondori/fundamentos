@@ -1,0 +1,24 @@
+#include <iostream>
+#include <math.h>
+using namespace std ;
+int main() {
+    float numero1, numero2, numero3, promedio ;
+    cout<< "Ingrese el primer numero: ";
+    cin >> numero1;
+    if (numero1>=0 && numero1<=10){
+        cout<< "Ingrese el segundo numero: ";
+        cin >> numero2;
+    
+        if (numero2>=0 && numero2<=10){
+            cout<< "Ingrese el tercer numero: ";
+            cin >> numero3;
+        
+            if (numero3>=0 && numero3<=10){
+                promedio=(numero1 + numero2 + numero3)/3.0 ;
+                cout<< "El promedio es: "<< promedio ;
+            }else cout<< "Error en el tercer numero" ;
+        }else cout<< "Error en el segundo numero";
+    }else cout<<"Error en el primer numero";
+              
+    return 0;
+}
