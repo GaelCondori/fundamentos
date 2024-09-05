@@ -1,0 +1,69 @@
+#include <iostream>
+#include <math.h>
+#include <string>
+using namespace std ;
+int main() {
+    int option ;
+    string nombre;
+    do { cout << "MENU" <<endl;
+    cout<< endl;
+    cout << "1. Hola mundo "<<endl;
+    cout <<"2. El peso de la carta "<<endl;
+    cout <<"3. Suma de numeros impares "<<endl;
+    cout <<"0. Salir "<<endl;
+    cout<<"Ingrese la opcion que desea: ";
+
+    cin>> option;
+
+    switch (option) {
+    case 1:
+    
+        cout<<"Introduce tu nombre: ";
+        cin>> nombre;
+        cout<< "Hola "<<nombre<< endl ;
+        break ;
+    case 2: 
+        float peso, costo ;
+        cout<< "Introduzca el costo de la carta: ";
+        cin>> peso;
+        if (peso>0 && peso<=50){
+            costo= 1.5;
+        } else if (peso>50 && peso<=100){
+            costo= 4 ;
+        } else if (peso>100 && peso<=200){
+            costo= 6 ;
+        } else if (peso>200 && peso<=350){
+            costo= 10.5 ;
+        } else if (peso>350 && peso<=500){
+            costo= 15  ;
+        } else { 
+            costo=-1;
+        } 
+        if(costo<=0){
+            cout << "no se puede enviar la carta";
+        }else{
+            cout << "el costo de la carta es: "<< costo << "bs"<<endl;
+        }
+        break ;
+    case 3: 
+            int n, i, suma ;
+         do {
+            cout<<"introduce el numero limite: ";
+        
+            cin>> n;
+        } while ((n>=100) || (n<=0)); 
+        i=1;
+        suma=0;
+        while (i<=n) {
+            suma=suma+i ;
+            i=i+2;
+         }
+        cout<<"La suma de los numeros enteros impares comprendidos entre 1 y "<<n<<" es: "<< suma<< endl;
+        break ;
+    case 0: cout << "Salir"<< endl; 
+        break ;
+    default: cout << "opcion invalida"<< endl; 
+    }
+    } while (option!=0);
+   
+}
