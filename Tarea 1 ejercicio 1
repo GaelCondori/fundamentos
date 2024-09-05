@@ -1,0 +1,12 @@
+#include <iostream>
+#include <math.h>
+using namespace std ;
+int main() {
+    float a, b ;
+    cout<< "escriba tener el valor de A: ";
+    cin>> a;
+    cout<< "escriba tener el valor de B: ";
+    cin>> b;
+    cout<<"el valor de A es: "<<b<<endl;
+    cout<<"el valor de B es: "<<a;
+}
