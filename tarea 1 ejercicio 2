@@ -1,0 +1,10 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+int main() {
+    float r, a ;
+    cout<< "ingresa el radio: ";
+    cin>> r;
+    a=3.1416*(pow(r,2));
+    cout<<"el area de la circunferencia es: "<<a;
+}
