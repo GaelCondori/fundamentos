@@ -1,0 +1,22 @@
+#include <math.h>
+#include <iostream>
+using namespace std;
+int main(){
+    int x,y;
+    cout<<"Ingrese el primer valor: ";
+    cin>>x;
+    cout<<"Ingrese el segundo valor: ";
+    cin>>y;
+    x=x+y;
+    cout<<"Ingrese el tercer valor: ";
+    cin>>y;
+    x=x+y;
+    cout<<"Ingrese el cuarto valor: ";
+    cin>>y;
+    x=x+y;
+    cout<<"Ingrese el quinto valor: ";
+    cin>>y;
+    x=(x+y)/5;
+    cout<<"El promedio es: "<<x;
+    return 0;
+}
