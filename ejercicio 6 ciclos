@@ -1,0 +1,26 @@
+//Antonio Gael Condori
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main()
+{
+    float x,suma=0;
+    int n;
+    do {
+        cout<<"Ingrese el valor de n: ";
+        cin>> n;
+    }while(n<=0);
+    do {
+        cout<<"Ingrese el valor de x: ";
+        cin>> x;
+    for(int i=1;i<=n;i++){
+        suma=suma+pow(x,i);
+    }
+        
+        cout<<endl<<"La suma es: "<<suma;
+    }while(x<=0);
+
+    return 0;
+}
