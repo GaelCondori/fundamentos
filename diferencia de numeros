@@ -1,0 +1,41 @@
+//Antonio Gael Condori
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Declaración de la función de verificación
+bool esSoloNumeros(string numero);
+
+int main()
+{
+    string numeroIngresado;
+    int longitudNumero, digitoInicio, digitoFin, diferencia, indice;
+    
+    // Bucle para solicitar el número y verificar que contenga solo dígitos numéricos
+    do {
+        cout << "Ingrese el número: ";
+        getline(cin, numeroIngresado);
+    } while (!esSoloNumeros(numeroIngresado));  
+    longitudNumero = numeroIngresado.length();
+    for (indice = 0; indice < longitudNumero / 2; indice++) {
+        digitoInicio = numeroIngresado.at(indice) - '0';  
+        digitoFin = numeroIngresado.at(longitudNumero - 1 - indice) - '0';  
+        diferencia = digitoInicio - digitoFin;
+        cout << "La diferencia entre " << digitoInicio << " y " << digitoFin << " es: " << diferencia << endl;
+    }
+    
+    return 0;
+}
+
+bool esSoloNumeros(string numero) {
+    bool soloNumeros = true;  
+    for (int i = 0; i < numero.length(); i++) {
+        
+        if (numero.at(i) < '0' || numero.at(i) > '9') {
+            soloNumeros = false;
+            return soloNumeros;  
+        }
+    }
+    return soloNumeros;  
+}
