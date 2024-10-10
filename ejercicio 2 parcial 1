@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int años;
+    float saldo, interes;
+            cout<<"Tasa de interes"<<endl;
+            do  {
+                    cout<<"Ingrese la cantidad de años que tiene activa: ";
+                    cin>>años;
+                    if(años<0)  {
+                                    cout<<"Dato invalido"<<endl;
+                                }
+                }while(años<0);
+            do  {
+                    cout<<"Ingresa el saldo promedio: ";
+                    cin>>saldo;
+                    if(saldo<0) {
+                                    cout<<"Dato invalido"<<endl;
+                                }
+                }while(saldo<0);
+            if(años>3)  {
+                            if(saldo>5000)  {
+                                                interes=saldo*0.03;
+                                                cout<<"La tasa de interes es del 3%, aplicado a tu saldo es: "<<interes;
+                                             }
+                            else             {  
+                                                interes=saldo*0.02;
+                                                cout<<"La tasa de interes es del 2%, aplicado a tu saldo es: "<<interes;
+                                              }
+                        }    
+            else        {
+                            if(saldo>5000)  {
+                                                interes=saldo*0.025;
+                                                cout<<"La tasa de interes es del 2.5%, aplicado a tu saldo es : "<<interes;
+                                            }
+                            else            {
+                                                interes=saldo*  0.015;  
+                                                cout<<"La tasa de interes es del 1.5%, aplicado a tu saldo es : "<<interes;
+                                            }
+                        }
+    return 0;
+}
