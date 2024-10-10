@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    float gasolina, diesel, totaldiesel, totalgasolina, total;
+    do{
+    cout<<"Ingrese la cantidad en litros de la gasolina vendida hoy: ";
+    cin>>gasolina;
+    if(gasolina<0){ 
+        cout<<"Dato invalido"<<endl;
+    }
+    }while(gasolina<0);
+    do{
+    cout<<"Ingrese la cantidad en litros del diesel vendido hoy: ";
+    cin>>diesel;
+    if(diesel<0){ 
+        cout<<"Dato invalido"<<endl;
+    }
+    }while(diesel<0);
+    totalgasolina=gasolina*3.5;
+    totaldiesel=gasolina*4;
+    total=totaldiesel+totalgasolina;
+    cout<<"El monto recaudado hoy es: "<<total;
+    return 0;
+}
