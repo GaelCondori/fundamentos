@@ -1,0 +1,27 @@
+//Antonio Gael Lanus Condori
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int numero, residuo, sumaPares = 0, sumaImpares = 0;
+    do {
+        cout << "Ingresa un número positivo: ";
+        cin >> numero;
+    } while (numero <= 0);
+    while (numero > 0)
+    {
+        residuo = numero % 10;  
+        numero = numero / 10;   
+        if (residuo % 2 == 0) {
+            sumaPares += residuo;  
+        } else {
+            sumaImpares += residuo;  
+        }  
+    }
+    cout << "La suma de dígitos pares es: " << sumaPares << endl;
+    cout << "La suma de dígitos impares es: " << sumaImpares << endl;
+    
+    return 0;
+}
