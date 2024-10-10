@@ -1,0 +1,114 @@
+//Antonio Gael Condori
+#include <iostream>
+
+using namespace std;
+
+// Función para verificar si un año es bisiesto
+bool esBisiesto(int anio) {
+    return (anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0);
+}
+
+// Función para validar una fecha
+bool fechaValida(int dia, int mes, int anio) {
+    if (mes < 1 || mes > 12 || dia < 1) {
+        return false;
+    }
+
+    // Días máximos por mes
+    int diasMes[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    
+    // Febrero y años bisiestos
+    if (mes == 2 && esBisiesto(anio)) {
+        diasMes[1] = 29;
+    }
+
+    return dia <= diasMes[mes - 1];
+}
+
+int calcularDiasDesdeNacimiento(int diaNacimiento, int mesNacimiento, int anioNacimiento, 
+                                int diaActual, int mesActual, int anioActual) {
+    // Cálculo de días vividos
+    int diasVividos = 0;
+    
+    // Días restantes en el mes de nacimiento
+    int diasMesNacimiento[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if (esBisiesto(anioNacimiento)) {
+        diasMesNacimiento[1] = 29; // Febrero bisiesto
+    }
+
+    diasVividos += diasMesNacimiento[mesNacimiento - 1] - diaNacimiento;
+
+    // Sumar días de meses hasta el fin del año de nacimiento
+    for (int m = mesNacimiento; m < 12; m++) {
+        diasVividos += diasMesNacimiento[m];
+    }
+
+    // Sumar años completos
+    for (int y = anioNacimiento + 1; y < anioActual; y++) {
+        diasVividos += esBisiesto(y) ? 366 : 365;
+    }
+
+    // Sumar días de meses del año actual hasta el mes actual
+    int diasMesActual[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if (esBisiesto(anioActual)) {
+        diasMesActual[1] = 29; // Febrero bisiesto
+    }
+
+    for (int m = 0; m < mesActual - 1; m++) {
+        diasVividos += diasMesActual[m];
+    }
+
+    // Finalmente, sumar los días del mes actual
+    diasVividos += diaActual;
+
+    return diasVividos;
+}
+
+int main() {
+    // Input fecha de nacimiento
+    int diaNacimiento, mesNacimiento, anioNacimiento;
+    cout << "Ingrese el día de su nacimiento: ";
+    cin >> diaNacimiento;
+    cout << "Ingrese el mes de su nacimiento: ";
+    cin >> mesNacimiento;
+    cout << "Ingrese el año de su nacimiento: ";
+    cin >> anioNacimiento;
+    
+    // Validación de fecha de nacimiento
+    if (!fechaValida(diaNacimiento, mesNacimiento, anioNacimiento)) {
+        cout << "Fecha de nacimiento inválida." << endl;
+        return 1;
+    }
+
+    // Input fecha actual
+    int diaActual, mesActual, anioActual;
+    cout << "Ingrese el día actual: ";
+    cin >> diaActual;
+    cout << "Ingrese el mes actual: ";
+    cin >> mesActual;
+    cout << "Ingrese el año actual: ";
+    cin >> anioActual;
+    
+    // Validación de fecha actual
+    if (!fechaValida(diaActual, mesActual, anioActual)) {
+        cout << "Fecha actual inválida." << endl;
+        return 1;
+    }
+
+    // Validación lógica (la fecha de nacimiento debe ser anterior a la fecha actual)
+    if (anioActual < anioNacimiento || 
+        (anioActual == anioNacimiento && mesActual < mesNacimiento) || 
+        (anioActual == anioNacimiento && mesActual == mesNacimiento && diaActual < diaNacimiento)) {
+        cout << "La fecha de nacimiento no puede ser posterior a la fecha actual." << endl;
+        return 1;
+    }
+
+    // Cálculo de los días totales vividos
+    int diasVividos = calcularDiasDesdeNacimiento(diaNacimiento, mesNacimiento, anioNacimiento, 
+                                                  diaActual, mesActual, anioActual);
+    
+    // Mostrar el resultado
+    cout << "Usted ha vivido " << diasVividos << " días." << endl;
+
+    return 0;
+}
