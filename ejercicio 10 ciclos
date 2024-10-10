@@ -1,0 +1,30 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main()
+{
+    float valorX, resultadoSuma = 0;
+    int numeroTerminos, signoActual = 1, factorialActual = 1;
+
+    cout << "Ingresa el valor de X: ";
+    cin >> valorX;
+    do {
+        cout << "Ingresa el número de términos (n), que indica cuántos términos tendrá la serie: ";
+        cin >> numeroTerminos;
+        if (numeroTerminos <= 0)
+            cout << "Valor incorrecto, ingresa un valor mayor a 0." << endl;
+    } while (numeroTerminos <= 0);
+    for (int indice = 1; indice <= numeroTerminos; indice++) {
+        factorialActual = factorialActual * indice;
+        if (indice % 2 != 0) {
+            resultadoSuma = resultadoSuma + signoActual * (pow(valorX, indice) / factorialActual);
+            cout << valorX << "**" << indice << "/" << factorialActual << " + ";
+            signoActual = -signoActual;  
+        }
+    }
+    cout << "\nLa suma de la serie es: " << resultadoSuma << endl;
+
+    return 0;
+}
