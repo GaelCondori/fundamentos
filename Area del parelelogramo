@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    float r,b,h;
+    cout<<"Ingresar Base: ";
+    cin>>b;
+    cout<<"Ingresar altura: ";
+    cin>>h;
+    r=b*h;
+    cout<<"La altura es: "<<r;
+    return 0;
+}
