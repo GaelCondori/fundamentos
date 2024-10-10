@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int cantidad, sumaDefectos = 0, aumento, decremento;
+    int dias = 7;  
+    int defectos[7];
+    for (int i = 0; i < dias; i++) {
+        do {
+            cout << "Ingrese la cantidad de zapatos defectuosos del día " << i + 1 << ": ";
+            cin >> cantidad;
+            if (cantidad < 0) {
+                cout << "La cantidad no puede ser negativa, intente nuevamente." << endl;
+            }
+        } while (cantidad < 0);
+        defectos[i] = cantidad;
+        sumaDefectos += cantidad;  
+    }
+    double promedio = static_cast<double>(sumaDefectos) / dias;
+
+
+    int diasMayorPromedio = 0, diasMenorPromedio = 0, diasIgualPromedio = 0;
+    for (int i = 0; i < dias; i++) {
+        if (defectos[i] > promedio) {
+            diasMayorPromedio++;
+        } else if (defectos[i] < promedio) {
+            diasMenorPromedio++;
+        } else {
+            diasIgualPromedio++;
+        }
+    }
+    cout << "\nEl promedio semanal de defectos es: " << promedio << endl;
+    cout << "Días con defectos mayores al promedio: " << diasMayorPromedio << endl;
+    cout << "Días con defectos menores al promedio: " << diasMenorPromedio << endl;
+    cout << "Días con defectos iguales al promedio: " << diasIgualPromedio << endl;
+
+    return 0;
+}
