@@ -1,0 +1,25 @@
+#include <iostream>
+#include <math.h> 
+using namespace std;
+
+int main() {
+    float x;
+    int n;
+    float suma = 0;
+
+    cout << "Este programa calcula la suma x^1 + x^2 + ... + x^n" << endl;
+
+    cout << "Introduce el valor de x: ";
+    cin >> x;
+    cout << "Introduce el valor de n: ";
+    cin >> n;
+    if (n <= 0) {
+        cout << "El valor de n debe ser un número positivo." << endl;
+        return 1; 
+    }
+    for (int i = 1; i <= n; i++) {
+        suma += pow(x, i); 
+    }
+    cout << "La suma hasta " << n << " es: " << suma << endl;
+    return 0;
+}
